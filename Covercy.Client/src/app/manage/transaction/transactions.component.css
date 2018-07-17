@@ -1,0 +1,18 @@
+:host
+{
+    flex-grow: 1;
+    display: flex;
+}
+
+.action-buttons button
+{
+    margin: 5px;
+}
+.inner-table
+{
+    flex-grow: 1;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}

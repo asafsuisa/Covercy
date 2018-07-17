@@ -1,0 +1,53 @@
+<h2 matDialogTitle>check2</h2>
+
+<div matDialogContent>
+    <form #f="ngForm" novalidate>
+        <p>
+            <mat-form-field>
+                <input type="number" matInput placeholder="CurrencyID" [(ngModel)]="row.currencyID" #currencyID="ngModel" name="currencyID" disabled>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input required type="text" matInput placeholder="Name" [(ngModel)]="row.name" #name="ngModel" name="name"
+                         [disabled]="operationType =='Delete'" [maxLength]="50">
+                <mat-error *ngIf="name?.errors?.required">
+                    Please enter a Name
+                </mat-error>
+                <mat-error *ngIf="name?.errors?.maxLength">
+                    Max length is 50
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+
+                <input required type="text" matInput placeholder="Symbol" [(ngModel)]="row.symbol" #symbol="ngModel" name="symbol" 
+                        [maxLength]="2"  [disabled]="operationType =='Delete'">
+                <mat-error *ngIf="symbol?.errors?.required" >
+                    Please enter a Symbol
+                </mat-error>
+                <mat-error *ngIf="symbol?.errors?.maxLength">
+                    Max length is 2
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input required type="text" matInput placeholder="Iso" [(ngModel)]="row.iso" #iso="ngModel" name="iso" 
+                [disabled]="operationType =='Delete'" [maxLength]="10">
+                <mat-error *ngIf="iso?.errors?.required">
+                     Please enter a Iso
+                </mat-error>
+                <mat-error *ngIf="iso?.errors?.maxLength">
+                      Max length is 10
+                </mat-error>
+            </mat-form-field>
+        </p>
+    </form>
+</div>
+
+<div matDialogActions>
+    <button mat-raised-button color="primary" (click)="dialogRef.close(row)" [disabled]="!form?.valid && operationType !='Delete'">{{operationType}}</button>
+    <button mat-raised-button color="accent" (click)="dialogRef.close(null)">Cancel</button>
+</div>

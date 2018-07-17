@@ -1,0 +1,65 @@
+<h2 matDialogTitle>check2</h2>
+
+<div matDialogContent>
+    <form #f="ngForm" novalidate>
+          <p>
+            <mat-form-field>
+
+                <input type="number" matInput placeholder="transactionID" [(ngModel)]="row.transactionID" #transactionID="ngModel"
+                    name="transactionID" [disabled]="true" >
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-select placeholder="Sale currency" [(ngModel)]="row.saleCurrency" #saleCurrency="ngModel" name="saleCurrency" [disabled]="operationType != 'Create'"
+                    required (ngModelChange)="checkAmount()">
+                    <mat-option *ngFor="let currency of allCurrency | async" [value]="currency.currencyID">
+                        {{currency.currencyID}} - {{currency.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="saleCurrency?.errors?.required">
+                    Please choose a sale currency
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+
+                <input required type="number" matInput placeholder="amount" [(ngModel)]="row.amount" #amount="ngModel"
+                    name="amount" (ngModelChange)="checkAmount()">
+                <mat-error *ngIf="amount?.errors?.required">
+                    Please enter amount
+                </mat-error>
+                <mat-hint *ngIf="!isAmmountCorrect">
+                    You have balance limitation of {{ammountLimitation}} 
+                </mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-select placeholder="Buy currency" [(ngModel)]="row.buyCurrency" #buyCurrency="ngModel" name="buyCurrency" [disabled]="operationType != 'Create'"
+                    required>
+                    <mat-option *ngFor="let currency of allCurrency | async" [value]="currency.currencyID">
+                        {{currency.currencyID}} - {{currency.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="buyCurrency?.errors?.required">
+                    Please choose a buy currency
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+
+                <input type="number" matInput placeholder="caculateAmount" [(ngModel)]="row.caculateAmount" #caculateAmount="ngModel"
+                    name="caculateAmount" [readonly]="true">
+            </mat-form-field>
+        </p>
+       
+    </form>
+</div>
+
+<div matDialogActions>
+    <button mat-raised-button color="primary" (click)="dialogRef.close(row)" [disabled]="(!form?.valid && operationType !='Delete') || !isAmmountCorrect">{{operationType}}</button>
+    <button mat-raised-button color="accent" (click)="dialogRef.close(null)">Cancel</button>
+</div>

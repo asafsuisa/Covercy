@@ -1,0 +1,62 @@
+<h2 matDialogTitle>check2</h2>
+
+<div matDialogContent>
+    <form #f="ngForm" novalidate>
+        <p>
+            <mat-form-field>
+                <mat-select placeholder="Sale currency" [(ngModel)]="row.saleCurrency" #saleCurrency="ngModel" name="saleCurrency" [disabled]="operationType != 'Create'"
+                    required>
+                    <mat-option *ngFor="let currency of allCurrency | async" [value]="currency.currencyID">
+                        {{currency.currencyID}} - {{currency.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="saleCurrency?.errors?.required">
+                    Please choose a sale currency
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-select placeholder="Buy currency" [(ngModel)]="row.buyCurrency" #buyCurrency="ngModel" name="buyCurrency" [disabled]="operationType != 'Create'"
+                    required>
+                    <mat-option *ngFor="let currency of allCurrency | async" [value]="currency.currencyID">
+                        {{currency.currencyID}} - {{currency.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="buyCurrency?.errors?.required">
+                    Please choose a buy currency
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+
+                <input required type="number" matInput placeholder="MidMarketRate" [(ngModel)]="row.midMarketRate" #midMarketRate="ngModel"
+                    name="midMarketRate" [min]="0.00000001" [disabled]="operationType =='Delete'">
+                <mat-error *ngIf="midMarketRate?.errors?.required">
+                    Please enter a midMarketRate
+                </mat-error>
+                <mat-error *ngIf="midMarketRate?.errors?.min">
+                    Please enter a positive value
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input required type="text" matInput placeholder="Display" [(ngModel)]="row.display" #display="ngModel" name="display" [maxLength]="10"
+                    [disabled]="operationType =='Delete'">
+                <mat-error *ngIf="display?.errors?.required">
+                    Please enter a Display
+                </mat-error>
+                <mat-error *ngIf="display?.errors?.maxLength">
+                    Maximum length is 10
+                </mat-error>
+            </mat-form-field>
+        </p>
+    </form>
+</div>
+
+<div matDialogActions>
+    <button mat-raised-button color="primary" (click)="dialogRef.close(row)" [disabled]="!form?.valid && operationType !='Delete'">{{operationType}}</button>
+    <button mat-raised-button color="accent" (click)="dialogRef.close(null)">Cancel</button>
+</div>
