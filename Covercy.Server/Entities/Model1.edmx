@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CovercyBankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="createBankAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="balance" Type="decimal" Mode="In" />
+          <Parameter Name="currency" Type="int" Mode="In" />
+        </Function>
+        <Function Name="createCurrency" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="symbol" Type="nvarchar" Mode="In" />
+          <Parameter Name="iso" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="createCurrencyPair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="saleCurrency" Type="int" Mode="In" />
+          <Parameter Name="buyCurrency" Type="int" Mode="In" />
+          <Parameter Name="midMarketRate" Type="decimal" Mode="In" />
+          <Parameter Name="display" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="deleteBankAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="accountID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteCurrency" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="currencyID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteCurrencyPair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="saleCurrency" Type="int" Mode="In" />
+          <Parameter Name="buyCurrency" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getAllBankAccounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllCurrency" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllCurrencyPair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getCurrencyAmount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="currencyId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getCurrencyPairsWithIso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="insertTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="saleCurrency" Type="int" Mode="In" />
+          <Parameter Name="amount" Type="decimal" Mode="In" />
+          <Parameter Name="buyCurrency" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updateBankAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="accountID" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="balance" Type="decimal" Mode="In" />
+          <Parameter Name="currency" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updateCurrency" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="currencyID" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="symbol" Type="nvarchar" Mode="In" />
+          <Parameter Name="iso" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="updateCurrencyPair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="saleCurrency" Type="int" Mode="In" />
+          <Parameter Name="buyCurrency" Type="int" Mode="In" />
+          <Parameter Name="midMarketRate" Type="decimal" Mode="In" />
+          <Parameter Name="display" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="updateCurrencyPairMarketRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="saleCurrency" Type="int" Mode="In" />
+          <Parameter Name="buyCurrency" Type="int" Mode="In" />
+          <Parameter Name="midMarketRate" Type="decimal" Mode="In" />
+        </Function>
+        <EntityContainer Name="CovercyBankModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CovercyBankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CovercyBankEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="getAllBankAccounts" ReturnType="Collection(CovercyBankModel.BankAccount)" />
+          <FunctionImport Name="createBankAccount" ReturnType="Collection(CovercyBankModel.BankAccount)">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="balance" Mode="In" Type="Decimal" />
+            <Parameter Name="currency" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="createCurrency" ReturnType="Collection(CovercyBankModel.Currency)">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="symbol" Mode="In" Type="String" />
+            <Parameter Name="iso" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="createCurrencyPair" ReturnType="Collection(CovercyBankModel.CurrencyPair)">
+            <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+            <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+            <Parameter Name="midMarketRate" Mode="In" Type="Decimal" />
+            <Parameter Name="display" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="deleteBankAccount">
+          <Parameter Name="accountID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteCurrency">
+          <Parameter Name="currencyID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteCurrencyPair">
+            <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+            <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getAllCurrency" ReturnType="Collection(CovercyBankModel.Currency)" />
+          <FunctionImport Name="getAllCurrencyPair" ReturnType="Collection(CovercyBankModel.CurrencyPair)" />
+          <FunctionImport Name="updateBankAccount" ReturnType="Collection(CovercyBankModel.BankAccount)">
+            <Parameter Name="accountID" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="balance" Mode="In" Type="Decimal" />
+            <Parameter Name="currency" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updateCurrency" ReturnType="Collection(CovercyBankModel.Currency)">
+            <Parameter Name="currencyID" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="symbol" Mode="In" Type="String" />
+            <Parameter Name="iso" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="updateCurrencyPair" ReturnType="Collection(CovercyBankModel.CurrencyPair)">
+            <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+            <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+            <Parameter Name="midMarketRate" Mode="In" Type="Decimal" />
+            <Parameter Name="display" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getAllTransactions" ReturnType="Collection(CovercyBankModel.Transaction)" />
+          <FunctionImport Name="insertTransaction">
+            <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+            <Parameter Name="amount" Mode="In" Type="Decimal" />
+            <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getCurrencyPairsWithIso" ReturnType="Collection(CovercyBankModel.CurrencyPairsWithIso)" />
+          <FunctionImport Name="updateCurrencyPairMarketRate">
+            <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+            <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+            <Parameter Name="midMarketRate" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getCurrencyAmount" ReturnType="Collection(CovercyBankModel.BankAccount)">
+            <Parameter Name="currencyId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="BankAccount">
+          <Property Type="Int32" Name="accountID" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="balance" Nullable="false" Precision="15" Scale="5" />
+          <Property Type="Int32" Name="currency" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Currency">
+          <Property Type="Int32" Name="currencyID" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="symbol" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="iso" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="CurrencyPair">
+          <Property Type="Int32" Name="saleCurrency" Nullable="false" />
+          <Property Type="Int32" Name="buyCurrency" Nullable="false" />
+          <Property Type="Decimal" Name="midMarketRate" Nullable="false" Precision="15" Scale="5" />
+          <Property Type="String" Name="display" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="Transaction">
+          <Property Type="Int32" Name="transactionID" Nullable="false" />
+          <Property Type="Int32" Name="saleCurrency" Nullable="false" />
+          <Property Type="Decimal" Name="amount" Nullable="false" Precision="15" Scale="5" />
+          <Property Type="Int32" Name="buyCurrency" Nullable="false" />
+          <Property Type="Decimal" Name="caculateAmount" Nullable="false" Precision="15" Scale="5" />
+        </ComplexType>
+        <ComplexType Name="CurrencyPairsWithIso">
+          <Property Type="Int32" Name="saleCurrency" Nullable="false" />
+          <Property Type="Int32" Name="buyCurrency" Nullable="false" />
+          <Property Type="String" Name="isoSale" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="isoBuy" Nullable="false" MaxLength="10" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CovercyBankModelStoreContainer" CdmEntityContainer="CovercyBankEntities" >
+          <FunctionImportMapping FunctionImportName="getAllBankAccounts" FunctionName="CovercyBankModel.Store.getAllBankAccounts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.BankAccount">
+                <ScalarProperty Name="accountID" ColumnName="accountID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="createBankAccount" FunctionName="CovercyBankModel.Store.createBankAccount">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.BankAccount">
+                <ScalarProperty Name="accountID" ColumnName="accountID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="createCurrency" FunctionName="CovercyBankModel.Store.createCurrency">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.Currency">
+                <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="symbol" ColumnName="symbol" />
+                <ScalarProperty Name="iso" ColumnName="iso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="createCurrencyPair" FunctionName="CovercyBankModel.Store.createCurrencyPair">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.CurrencyPair">
+                <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+                <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+                <ScalarProperty Name="midMarketRate" ColumnName="midMarketRate" />
+                <ScalarProperty Name="display" ColumnName="display" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="deleteBankAccount" FunctionName="CovercyBankModel.Store.deleteBankAccount" />
+          <FunctionImportMapping FunctionImportName="deleteCurrency" FunctionName="CovercyBankModel.Store.deleteCurrency" />
+          <FunctionImportMapping FunctionImportName="deleteCurrencyPair" FunctionName="CovercyBankModel.Store.deleteCurrencyPair" />
+          <FunctionImportMapping FunctionImportName="getAllCurrency" FunctionName="CovercyBankModel.Store.getAllCurrency">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.Currency">
+                <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="symbol" ColumnName="symbol" />
+                <ScalarProperty Name="iso" ColumnName="iso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllCurrencyPair" FunctionName="CovercyBankModel.Store.getAllCurrencyPair">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.CurrencyPair">
+                <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+                <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+                <ScalarProperty Name="midMarketRate" ColumnName="midMarketRate" />
+                <ScalarProperty Name="display" ColumnName="display" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updateBankAccount" FunctionName="CovercyBankModel.Store.updateBankAccount">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.BankAccount">
+                <ScalarProperty Name="accountID" ColumnName="accountID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updateCurrency" FunctionName="CovercyBankModel.Store.updateCurrency">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.Currency">
+                <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="symbol" ColumnName="symbol" />
+                <ScalarProperty Name="iso" ColumnName="iso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updateCurrencyPair" FunctionName="CovercyBankModel.Store.updateCurrencyPair">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.CurrencyPair">
+                <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+                <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+                <ScalarProperty Name="midMarketRate" ColumnName="midMarketRate" />
+                <ScalarProperty Name="display" ColumnName="display" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllTransactions" FunctionName="CovercyBankModel.Store.getAllTransactions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.Transaction">
+                <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+                <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+                <ScalarProperty Name="caculateAmount" ColumnName="caculateAmount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="insertTransaction" FunctionName="CovercyBankModel.Store.insertTransaction" />
+          <FunctionImportMapping FunctionImportName="getCurrencyPairsWithIso" FunctionName="CovercyBankModel.Store.getCurrencyPairsWithIso">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.CurrencyPairsWithIso">
+                <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+                <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+                <ScalarProperty Name="isoSale" ColumnName="isoSale" />
+                <ScalarProperty Name="isoBuy" ColumnName="isoBuy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updateCurrencyPairMarketRate" FunctionName="CovercyBankModel.Store.updateCurrencyPairMarketRate" />
+          <FunctionImportMapping FunctionImportName="getCurrencyAmount" FunctionName="CovercyBankModel.Store.getCurrencyAmount">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CovercyBankModel.BankAccount">
+                <ScalarProperty Name="accountID" ColumnName="accountID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

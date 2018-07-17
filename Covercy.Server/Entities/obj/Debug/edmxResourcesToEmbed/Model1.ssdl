@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CovercyBankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="createBankAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="balance" Type="decimal" Mode="In" />
+    <Parameter Name="currency" Type="int" Mode="In" />
+  </Function>
+  <Function Name="createCurrency" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="symbol" Type="nvarchar" Mode="In" />
+    <Parameter Name="iso" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="createCurrencyPair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="saleCurrency" Type="int" Mode="In" />
+    <Parameter Name="buyCurrency" Type="int" Mode="In" />
+    <Parameter Name="midMarketRate" Type="decimal" Mode="In" />
+    <Parameter Name="display" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="deleteBankAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accountID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="deleteCurrency" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="currencyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="deleteCurrencyPair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="saleCurrency" Type="int" Mode="In" />
+    <Parameter Name="buyCurrency" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getAllBankAccounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getAllCurrency" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getAllCurrencyPair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getAllTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getCurrencyAmount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="currencyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getCurrencyPairsWithIso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="insertTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="saleCurrency" Type="int" Mode="In" />
+    <Parameter Name="amount" Type="decimal" Mode="In" />
+    <Parameter Name="buyCurrency" Type="int" Mode="In" />
+  </Function>
+  <Function Name="updateBankAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accountID" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="balance" Type="decimal" Mode="In" />
+    <Parameter Name="currency" Type="int" Mode="In" />
+  </Function>
+  <Function Name="updateCurrency" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="currencyID" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="symbol" Type="nvarchar" Mode="In" />
+    <Parameter Name="iso" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="updateCurrencyPair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="saleCurrency" Type="int" Mode="In" />
+    <Parameter Name="buyCurrency" Type="int" Mode="In" />
+    <Parameter Name="midMarketRate" Type="decimal" Mode="In" />
+    <Parameter Name="display" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="updateCurrencyPairMarketRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="saleCurrency" Type="int" Mode="In" />
+    <Parameter Name="buyCurrency" Type="int" Mode="In" />
+    <Parameter Name="midMarketRate" Type="decimal" Mode="In" />
+  </Function>
+  <EntityContainer Name="CovercyBankModelStoreContainer" />
+</Schema>

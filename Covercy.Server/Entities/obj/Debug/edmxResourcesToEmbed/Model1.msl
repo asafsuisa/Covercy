@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CovercyBankModelStoreContainer" CdmEntityContainer="CovercyBankEntities">
+    <FunctionImportMapping FunctionImportName="getAllBankAccounts" FunctionName="CovercyBankModel.Store.getAllBankAccounts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.BankAccount">
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="createBankAccount" FunctionName="CovercyBankModel.Store.createBankAccount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.BankAccount">
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="createCurrency" FunctionName="CovercyBankModel.Store.createCurrency">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.Currency">
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="symbol" ColumnName="symbol" />
+          <ScalarProperty Name="iso" ColumnName="iso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="createCurrencyPair" FunctionName="CovercyBankModel.Store.createCurrencyPair">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.CurrencyPair">
+          <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+          <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+          <ScalarProperty Name="midMarketRate" ColumnName="midMarketRate" />
+          <ScalarProperty Name="display" ColumnName="display" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="deleteBankAccount" FunctionName="CovercyBankModel.Store.deleteBankAccount" />
+    <FunctionImportMapping FunctionImportName="deleteCurrency" FunctionName="CovercyBankModel.Store.deleteCurrency" />
+    <FunctionImportMapping FunctionImportName="deleteCurrencyPair" FunctionName="CovercyBankModel.Store.deleteCurrencyPair" />
+    <FunctionImportMapping FunctionImportName="getAllCurrency" FunctionName="CovercyBankModel.Store.getAllCurrency">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.Currency">
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="symbol" ColumnName="symbol" />
+          <ScalarProperty Name="iso" ColumnName="iso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getAllCurrencyPair" FunctionName="CovercyBankModel.Store.getAllCurrencyPair">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.CurrencyPair">
+          <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+          <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+          <ScalarProperty Name="midMarketRate" ColumnName="midMarketRate" />
+          <ScalarProperty Name="display" ColumnName="display" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="updateBankAccount" FunctionName="CovercyBankModel.Store.updateBankAccount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.BankAccount">
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="updateCurrency" FunctionName="CovercyBankModel.Store.updateCurrency">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.Currency">
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="symbol" ColumnName="symbol" />
+          <ScalarProperty Name="iso" ColumnName="iso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="updateCurrencyPair" FunctionName="CovercyBankModel.Store.updateCurrencyPair">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.CurrencyPair">
+          <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+          <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+          <ScalarProperty Name="midMarketRate" ColumnName="midMarketRate" />
+          <ScalarProperty Name="display" ColumnName="display" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getAllTransactions" FunctionName="CovercyBankModel.Store.getAllTransactions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.Transaction">
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+          <ScalarProperty Name="caculateAmount" ColumnName="caculateAmount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="insertTransaction" FunctionName="CovercyBankModel.Store.insertTransaction" />
+    <FunctionImportMapping FunctionImportName="getCurrencyPairsWithIso" FunctionName="CovercyBankModel.Store.getCurrencyPairsWithIso">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.CurrencyPairsWithIso">
+          <ScalarProperty Name="saleCurrency" ColumnName="saleCurrency" />
+          <ScalarProperty Name="buyCurrency" ColumnName="buyCurrency" />
+          <ScalarProperty Name="isoSale" ColumnName="isoSale" />
+          <ScalarProperty Name="isoBuy" ColumnName="isoBuy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="updateCurrencyPairMarketRate" FunctionName="CovercyBankModel.Store.updateCurrencyPairMarketRate" />
+    <FunctionImportMapping FunctionImportName="getCurrencyAmount" FunctionName="CovercyBankModel.Store.getCurrencyAmount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CovercyBankModel.BankAccount">
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

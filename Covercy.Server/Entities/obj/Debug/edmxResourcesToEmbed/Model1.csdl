@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CovercyBankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CovercyBankEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="getAllBankAccounts" ReturnType="Collection(CovercyBankModel.BankAccount)" />
+    <FunctionImport Name="createBankAccount" ReturnType="Collection(CovercyBankModel.BankAccount)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="balance" Mode="In" Type="Decimal" />
+      <Parameter Name="currency" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="createCurrency" ReturnType="Collection(CovercyBankModel.Currency)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="symbol" Mode="In" Type="String" />
+      <Parameter Name="iso" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="createCurrencyPair" ReturnType="Collection(CovercyBankModel.CurrencyPair)">
+      <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+      <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+      <Parameter Name="midMarketRate" Mode="In" Type="Decimal" />
+      <Parameter Name="display" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="deleteBankAccount">
+      <Parameter Name="accountID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteCurrency">
+      <Parameter Name="currencyID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteCurrencyPair">
+      <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+      <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getAllCurrency" ReturnType="Collection(CovercyBankModel.Currency)" />
+    <FunctionImport Name="getAllCurrencyPair" ReturnType="Collection(CovercyBankModel.CurrencyPair)" />
+    <FunctionImport Name="updateBankAccount" ReturnType="Collection(CovercyBankModel.BankAccount)">
+      <Parameter Name="accountID" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="balance" Mode="In" Type="Decimal" />
+      <Parameter Name="currency" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updateCurrency" ReturnType="Collection(CovercyBankModel.Currency)">
+      <Parameter Name="currencyID" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="symbol" Mode="In" Type="String" />
+      <Parameter Name="iso" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="updateCurrencyPair" ReturnType="Collection(CovercyBankModel.CurrencyPair)">
+      <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+      <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+      <Parameter Name="midMarketRate" Mode="In" Type="Decimal" />
+      <Parameter Name="display" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getAllTransactions" ReturnType="Collection(CovercyBankModel.Transaction)" />
+    <FunctionImport Name="insertTransaction">
+      <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getCurrencyPairsWithIso" ReturnType="Collection(CovercyBankModel.CurrencyPairsWithIso)" />
+    <FunctionImport Name="updateCurrencyPairMarketRate">
+      <Parameter Name="saleCurrency" Mode="In" Type="Int32" />
+      <Parameter Name="buyCurrency" Mode="In" Type="Int32" />
+      <Parameter Name="midMarketRate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="getCurrencyAmount" ReturnType="Collection(CovercyBankModel.BankAccount)">
+      <Parameter Name="currencyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="BankAccount">
+    <Property Type="Int32" Name="accountID" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="balance" Nullable="false" Precision="15" Scale="5" />
+    <Property Type="Int32" Name="currency" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Currency">
+    <Property Type="Int32" Name="currencyID" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="symbol" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="iso" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="CurrencyPair">
+    <Property Type="Int32" Name="saleCurrency" Nullable="false" />
+    <Property Type="Int32" Name="buyCurrency" Nullable="false" />
+    <Property Type="Decimal" Name="midMarketRate" Nullable="false" Precision="15" Scale="5" />
+    <Property Type="String" Name="display" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="Transaction">
+    <Property Type="Int32" Name="transactionID" Nullable="false" />
+    <Property Type="Int32" Name="saleCurrency" Nullable="false" />
+    <Property Type="Decimal" Name="amount" Nullable="false" Precision="15" Scale="5" />
+    <Property Type="Int32" Name="buyCurrency" Nullable="false" />
+    <Property Type="Decimal" Name="caculateAmount" Nullable="false" Precision="15" Scale="5" />
+  </ComplexType>
+  <ComplexType Name="CurrencyPairsWithIso">
+    <Property Type="Int32" Name="saleCurrency" Nullable="false" />
+    <Property Type="Int32" Name="buyCurrency" Nullable="false" />
+    <Property Type="String" Name="isoSale" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="isoBuy" Nullable="false" MaxLength="10" />
+  </ComplexType>
+</Schema>
